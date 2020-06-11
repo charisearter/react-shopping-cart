@@ -7,12 +7,20 @@ import Navigation from './components/Navigation';
 import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 
+//Context
+
+import { createContext } from 'react';
+
+const ProductContext = createContext();
+
 function App() {
 	const [products] = useState(data);
 	const [cart, setCart] = useState([]);
 
 	const addItem = item => {
 		// add the given item to the cart
+		//spread operator of state (cart), add item(variable of what is being passed in)
+		setCart([...cart, item]);
 	};
 
 	return (
@@ -21,7 +29,11 @@ function App() {
 
 			{/* Routes */}
 			<Route exact path="/">
-				<Products products={products} addItem={addItem} />
+					{/* //Passing values in Provider context */}
+				<ProductContext.Provider value={{ products, addItem }}>
+					{/* //can remove from component */}
+				<Products />
+				</ProductContext.Provider>
 			</Route>
 
 			<Route path="/cart">

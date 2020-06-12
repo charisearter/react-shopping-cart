@@ -8,10 +8,12 @@ import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 
 //Context
-
+//1. import create context from react
 import { createContext } from 'react';
 
+//2. ComponentNameContext = createContext();
 const ProductContext = createContext();
+const CartContext = createContext();
 
 function App() {
 	const [products] = useState(data);
@@ -19,25 +21,37 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
-		//spread operator of state (cart), add item(variable of what is being passed in)
+		//spread operator of state (cart), add item(variable of what is being passed in < functionName = variableBeingPassedIn => { >)
 		setCart([...cart, item]);
 	};
 
 	return (
 		<div className="App">
-			<Navigation cart={cart} />
+
+			{/* //CartContext.Provider is wrapped around Navigation and ShoppingCart */}
+			<CartContext.Provder value={{cart}}>
+			<Navigation />
+			</CartContext.Provder>
 
 			{/* Routes */}
 			<Route exact path="/">
+
+				{/* //3. wrap Component with ComponentNameContext.Provider with values = to whatever is being passed */}
 					{/* //Passing values in Provider context */}
+
 				<ProductContext.Provider value={{ products, addItem }}>
-					{/* //can remove from component */}
+					
+					{/* //can remove values being passed from component */}
 				<Products />
+				
+				{/* //Don't forget to close ComponentNameContext.Provider */}
 				</ProductContext.Provider>
 			</Route>
 
 			<Route path="/cart">
-				<ShoppingCart cart={cart} />
+				<CartContext.Provder value={{cart}}>
+				<ShoppingCart />
+				</CartContext.Provder>
 			</Route>
 		</div>
 	);

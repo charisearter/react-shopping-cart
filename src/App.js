@@ -29,9 +29,9 @@ function App() {
 		<div className="App">
 
 			{/* //CartContext.Provider is wrapped around Navigation and ShoppingCart */}
-			<CartContext.Provder value={{cart}}>
+			<CartContext.Provider value={{cart}}>
 			<Navigation />
-			</CartContext.Provder>
+			</CartContext.Provider>
 
 			{/* Routes */}
 			<Route exact path="/">
@@ -49,9 +49,9 @@ function App() {
 			</Route>
 
 			<Route path="/cart">
-				<CartContext.Provder value={{cart}}>
+				<CartContext.Provider value={{cart}}>
 				<ShoppingCart />
-				</CartContext.Provder>
+				</CartContext.Provider>
 			</Route>
 		</div>
 	);

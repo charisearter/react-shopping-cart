@@ -9,4 +9,5 @@ import { createContext } from 'react';
 //export const ComponentNameContext = createContext();
 export const ProductContext = createContext();
 
-export const CartContext = createContext();
+//adding [] did not fix error
+export const CartContext = createContext(); 

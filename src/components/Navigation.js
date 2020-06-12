@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import { CartContext } from '../contexts'
 
-export default function Navigation() {
+const Navigation = () => {
 	//destructure and remove props
 	const { cart } = useContext(CartContext);
 
@@ -19,4 +19,4 @@ export default function Navigation() {
 	);
 };
 
-//export default Navigation;
+export default Navigation;

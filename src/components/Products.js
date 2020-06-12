@@ -7,7 +7,7 @@ import Product from './Product';
 //import ComponentContext
 import { ProductContext } from '../contexts'
 
-export default function Products() {
+const Products = () => {
 	const { products, addItem }= useContext(ProductContext);
 	return (
 		<div className="products-container">
@@ -22,4 +22,4 @@ export default function Products() {
 	);
 };
 
-
+export default Products;

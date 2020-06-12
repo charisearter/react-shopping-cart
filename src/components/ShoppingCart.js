@@ -8,7 +8,7 @@ import { CartContext } from '../contexts';
 
 //change to export default function NAME() {//whatever}
 //make sure to remove the export line below the function
-export default function ShoppingCart() {
+const ShoppingCart = () => {
 
 	//deconstruct value and remove props fro getCart total and map
 	const { cart }= useContext(CartContext);
@@ -33,4 +33,4 @@ export default function ShoppingCart() {
 	);
 };
 
-//export default ShoppingCart;
+export default ShoppingCart;
